@@ -1,16 +1,16 @@
-import {MyElement} from '../my-element.js';
+import {MyElement} from '../sinpapeles-profile.js';
 import {fixture, html} from '@open-wc/testing';
 
 const assert = chai.assert;
 
-suite('my-element', () => {
+suite('sinpapeles-profile', () => {
   test('is defined', () => {
-    const el = document.createElement('my-element');
+    const el = document.createElement('sinpapeles-profile');
     assert.instanceOf(el, MyElement);
   });
 
   test('renders with default values', async () => {
-    const el = await fixture(html`<my-element></my-element>`);
+    const el = await fixture(html`<sinpapeles-profile></sinpapeles-profile>`);
     assert.shadowDom.equal(
       el,
       `
@@ -22,7 +22,9 @@ suite('my-element', () => {
   });
 
   test('renders with a set name', async () => {
-    const el = await fixture(html`<my-element name="Test"></my-element>`);
+    const el = await fixture(
+      html`<sinpapeles-profile name="Test"></sinpapeles-profile>`
+    );
     assert.shadowDom.equal(
       el,
       `
@@ -34,7 +36,7 @@ suite('my-element', () => {
   });
 
   test('handles a click', async () => {
-    const el = await fixture(html`<my-element></my-element>`);
+    const el = await fixture(html`<sinpapeles-profile></sinpapeles-profile>`);
     const button = el.shadowRoot.querySelector('button');
     button.click();
     await el.updateComplete;
