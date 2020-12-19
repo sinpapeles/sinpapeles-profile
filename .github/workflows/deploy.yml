@@ -24,6 +24,8 @@ jobs:
       - run: npm install -g yarn
       - name: Install
         run: yarn install
+      - name: Install
+        run: yarn build
       - name: Move files
         run: |
           mkdir -p build
