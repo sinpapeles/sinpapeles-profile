@@ -72,6 +72,7 @@ export class Profile extends LitElement {
       :host .img-fluid {
         max-width: 100%;
         height: auto;
+        max-height: 250px;
       }
 
       :host .bio {
