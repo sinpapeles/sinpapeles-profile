@@ -21,7 +21,8 @@
     "test:watch": "karma start karma.conf.cjs --auto-watch=true --single-run=false",
     "test:update-snapshots": "karma start karma.conf.cjs --update-snapshots",
     "test:prune-snapshots": "karma start karma.conf.cjs --prune-snapshots",
-    "checksize": "rollup -c ; cat sinpapeles-profile.bundled.js | gzip -9 | wc -c ; rm sinpapeles-profile.bundled.js"
+    "checksize": "rollup -c ; cat sinpapeles-profile.bundled.js | gzip -9 | wc -c ; rm sinpapeles-profile.bundled.js",
+    "build": "rollup -c"
   },
   "keywords": [
     "web-components",
