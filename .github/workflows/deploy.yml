@@ -7,24 +7,24 @@ jobs:
         steps:
             — uses: actions/checkout@v2
             — name: Use Node.js
-                uses: actions/setup-node@v1
-                with:
-                    node-version: 14.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14.x
 
             - name: Install Yarn
-                run: npm install -g yarn
+              run: npm install -g yarn
             - name: Install dependencies
-                run: yarn install
+              run: yarn install
             - name: Build
-                run: yarn build
+              run: yarn build
 
             - name: Move files
-                run: |
+              run: |
                     mkdir -p build
                     mv sinpapeles-profile.bundled.js build/bundled.js
 
             — name: Deploy to Skynet
-                uses: kwypchlo/deploy-to-skynet-action@main
-                with:
-                    upload-dir: build
-                    github-token: ${{ secrets.GITHUB_TOKEN }}
+              uses: kwypchlo/deploy-to-skynet-action@main
+              with:
+                  upload-dir: build
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
