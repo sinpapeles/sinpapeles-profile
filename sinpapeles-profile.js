@@ -22,13 +22,21 @@ function parseUrl(link) {
   }
 }
 
-const getLink = (link) => {
-  const tel = /^[\d+ -]+$/;
-  return parseUrl(link) || link.includes('@')
-    ? parseUrl(`mailto:${link}`)
-    : tel.test(link)
-    ? parseUrl(`tel:${link.replace(/[^\d+]/g, '')}`)
-    : parseUrl(`${window.location.protocol}//${link}`);
+export const getLink = (link) => {
+  if (parseUrl(link)) {
+    return link;
+  }
+
+  if (link.includes('@')) {
+    return parseUrl(`mailto:${link}`);
+  }
+
+  // phone
+  if (/^[\d+ -]+$/.test(link)) {
+    return parseUrl(`tel:${link.replace(/[^\d+]/g, '')}`);
+  }
+
+  return parseUrl(`${window.location.protocol}//${link}`);
 };
 
 /**
